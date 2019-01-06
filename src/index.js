@@ -1,11 +1,12 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import './styles/index.css';
+import App from './containers/App';
+import {Provider} from 'react-redux';
+import configureStore from './store/configureStore';
 
-const title = 'suraj';
 
-ReactDOM.render(
-  <div>{title}</div>,
-  document.getElementById('app')
-);
 
-module.hot.accept();
+const store=configureStore();
+
+ReactDOM.render(<Provider store={store}><App /></Provider>, document.getElementById('app'));
